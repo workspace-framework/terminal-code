@@ -1,0 +1,47 @@
+{
+  "name": "@sandikodev/astro-terminal-code",
+  "version": "0.1.0",
+  "description": "Terminal-style code highlighting for Astro with advanced workspace integration",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts",
+    "dev": "tsup src/index.ts --format esm --dts --watch"
+  },
+  "keywords": [
+    "astro",
+    "terminal",
+    "code-highlighting",
+    "workspace",
+    "sandikodev",
+    "desktop-environment"
+  ],
+  "author": "SandikoDev <sandikodev@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "astro": "^4.0.0"
+  },
+  "dependencies": {
+    "shiki": "^1.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sandikodev/astro-terminal-code"
+  },
+  "homepage": "https://sandikodev.com/workspace"
+}
