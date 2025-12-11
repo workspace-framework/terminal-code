@@ -2,7 +2,7 @@
 
 🖥️ **Terminal-style code highlighting for Astro with advanced workspace integration**
 
-Part of the **SandikoOS Ecosystem** - building towards native desktop environment development with web technologies.
+Part of the **RENDER Ecosystem** - "Ruin your F*cking at door" - building towards revolutionary desktop environment development with web technologies.
 
 ## ✨ Features
 
@@ -49,25 +49,25 @@ export default defineConfig({
 ## 🎯 Advanced Usage
 
 ### Terminal Frame with Title
-\`\`\`js title="my-awesome-code.js"
-console.log('Hello SandikoOS!');
-\`\`\`
+```js title="my-awesome-code.js"
+console.log('Hello RENDER!');
+```
 
 ### Diff Highlighting
-\`\`\`js diff="+1,3 -2"
+```js diff="+1,3 -2"
 - const old = 'legacy';
 + const new = 'modern';
-+ const future = 'sandikoOS';
-\`\`\`
++ const future = 'RENDER';
+```
 
 ### Line Highlighting
-\`\`\`js {1,3-5}
+```js {1,3-5}
 const line1 = 'highlighted';
 const line2 = 'normal';
 const line3 = 'highlighted';
 const line4 = 'highlighted';
 const line5 = 'highlighted';
-\`\`\`
+```
 
 ## 🌟 Workspace Mode
 
@@ -75,7 +75,7 @@ When `workspaceMode: true` is enabled, code blocks become **desktop environment 
 
 - Adds `data-workspace-widget="code-block"` attributes
 - Enables future native desktop integration
-- Prepares for **SandikoOS** compositor compatibility
+- Prepares for **RENDER** compositor compatibility
 
 ## 🎨 Theming
 
@@ -86,13 +86,13 @@ Fully compatible with terminal themes and workspace aesthetics:
 - Custom CSS variables support
 - Terminal color scheme integration
 
-## 🔮 Roadmap: SandikoOS Vision
+## 🔮 Roadmap: RENDER Vision
 
-This package is **Phase 1** of the SandikoOS ecosystem:
+This package is **Phase 1** of the RENDER ecosystem:
 
 1. **Phase 1**: `@sandikodev/astro-terminal-code` ✅
 2. **Phase 2**: `@sandikodev/workspace-framework` 
-3. **Phase 3**: **SandikoOS Native Desktop Environment**
+3. **Phase 3**: **RENDER Native Desktop Environment**
 
 ### The Vision
 Create a **native desktop environment** where developers can build applications as easily as web development, with:
@@ -103,7 +103,7 @@ Create a **native desktop environment** where developers can build applications 
 
 ## 🤝 Contributing
 
-Join the **SandikoOS** revolution! This is bigger than just code highlighting - we're building the future of desktop development.
+Join the **RENDER** revolution! "Tunneling the door at everything" - This is bigger than just code highlighting - we're building the future of desktop development.
 
 ## 📄 License
 
