@@ -1,5 +1,5 @@
-import type { AstroIntegration } from 'astro';
-import { createTerminalCodeProcessor } from './processor.js';
+import type { AstroIntegration } from "astro";
+import { createTerminalCodeProcessor } from "./processor.js";
 
 export interface TerminalCodeConfig {
   themes?: {
@@ -21,13 +21,15 @@ export interface TerminalCodeConfig {
   };
 }
 
-export default function terminalCode(config: TerminalCodeConfig = {}): AstroIntegration {
+export default function terminalCode(
+  config: TerminalCodeConfig = {},
+): AstroIntegration {
   return {
-    name: '@sandikodev/astro-terminal-code',
+    name: "@sandikodev/astro-terminal-code",
     hooks: {
-      'astro:config:setup': ({ updateConfig, addRenderer }) => {
+      "astro:config:setup": ({ updateConfig, addRenderer }) => {
         const processor = createTerminalCodeProcessor(config);
-        
+
         updateConfig({
           markdown: {
             syntaxHighlight: false, // We handle this ourselves
@@ -36,14 +38,19 @@ export default function terminalCode(config: TerminalCodeConfig = {}): AstroInte
 
         // Add our custom renderer for code blocks
         addRenderer({
-          name: 'terminal-code-renderer',
-          serverEntrypoint: '@sandikodev/astro-terminal-code/renderer',
+          name: "terminal-code-renderer",
+          serverEntrypoint: "@sandikodev/astro-terminal-code/renderer",
         });
       },
-      'astro:config:done': ({ config }) => {
-        console.log('🖥️  Terminal Code: Workspace-ready syntax highlighting enabled');
+      "astro:config:done": () => {
+        console.log(
+          "🖥️  Terminal Code: Workspace-ready syntax highlighting enabled",
+        );
+        // Check our TerminalCodeConfig, not AstroConfig
         if (config.features?.workspaceMode) {
-          console.log('🚀 Workspace Mode: Desktop environment compatibility active');
+          console.log(
+            "🚀 Workspace Mode: Desktop environment compatibility active",
+          );
         }
       },
     },
@@ -51,4 +58,4 @@ export default function terminalCode(config: TerminalCodeConfig = {}): AstroInte
 }
 
 export { terminalCode };
-export type { TerminalCodeConfig };
+// Note: TerminalCodeConfig is already exported via the interface declaration above
