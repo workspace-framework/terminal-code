@@ -1,23 +1,22 @@
 import type { AstroIntegration } from "astro";
-import { createTerminalCodeProcessor } from "./processor.js";
 
 export interface TerminalCodeConfig {
-  themes?: {
-    light?: string;
-    dark?: string;
-  };
-  features?: {
-    lineNumbers?: boolean;
-    copyButton?: boolean;
-    diffHighlight?: boolean;
-    languageBadge?: boolean;
-    terminalFrame?: boolean;
-    workspaceMode?: boolean;
-  };
   customStyles?: {
     borderRadius?: string;
     fontFamily?: string;
     fontSize?: string;
+  };
+  features?: {
+    copyButton?: boolean;
+    diffHighlight?: boolean;
+    languageBadge?: boolean;
+    lineNumbers?: boolean;
+    terminalFrame?: boolean;
+    workspaceMode?: boolean;
+  };
+  themes?: {
+    dark?: string;
+    light?: string;
   };
 }
 
@@ -25,11 +24,20 @@ export default function terminalCode(
   config: TerminalCodeConfig = {},
 ): AstroIntegration {
   return {
-    name: "@sandikodev/astro-terminal-code",
     hooks: {
-      "astro:config:setup": ({ updateConfig, addRenderer }) => {
-        const processor = createTerminalCodeProcessor(config);
-
+      "astro:config:done": () => {
+        console.log(
+          "🖥️  Terminal Code: Workspace-ready syntax highlighting enabled",
+        );
+        // Check our TerminalCodeConfig, not AstroConfig
+        if (config.features?.workspaceMode) {
+          console.log(
+            "🚀 Workspace Mode: Desktop environment compatibility active",
+          );
+        }
+      },
+      "astro:config:setup": ({ addRenderer, updateConfig }) => {
+        // Processor not needed in setup, only for runtime
         updateConfig({
           markdown: {
             syntaxHighlight: false, // We handle this ourselves
@@ -42,18 +50,8 @@ export default function terminalCode(
           serverEntrypoint: "@sandikodev/astro-terminal-code/renderer",
         });
       },
-      "astro:config:done": () => {
-        console.log(
-          "🖥️  Terminal Code: Workspace-ready syntax highlighting enabled",
-        );
-        // Check our TerminalCodeConfig, not AstroConfig
-        if (config.features?.workspaceMode) {
-          console.log(
-            "🚀 Workspace Mode: Desktop environment compatibility active",
-          );
-        }
-      },
     },
+    name: "@sandikodev/astro-terminal-code",
   };
 }
 

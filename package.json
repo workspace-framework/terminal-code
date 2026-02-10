@@ -27,7 +27,7 @@
     "sandikodev",
     "desktop-environment"
   ],
-  "author": "SandikoDev <sandikodev@gmail.com>",
+  "author": "SandikoDev <androxoss@hotmail.com>",
   "license": "MIT",
   "peerDependencies": {
     "astro": "^4.0.0"
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "tsup": "^8.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "~5.6.3"
   },
   "repository": {
     "type": "git",
